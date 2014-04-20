@@ -4,12 +4,12 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <h1>
-    <fmt:message key="accounts.edit.title"/>
+    <fmt:message key="accounts.create.title"/>
 </h1>
 
 <div id="accountDetails">
-    <spring:url value="/accounts/{number}" var="accountUrl">
-        <spring:param name="number" value="${account.id}"/>
+    <spring:url value="/accounts/{action}" var="accountUrl">
+        <spring:param name="action" value="create"/>
     </spring:url>
     <form:form modelAttribute="account" action="${accountUrl}" method="POST">
         <fieldset>
@@ -56,7 +56,10 @@
                 <fmt:message key="command.save"/>
             </button>
 
-            <a href="${accountUrl}">
+            <spring:url value="/" var="homeUrl">
+                <spring:param name="action" value=""/>
+            </spring:url>
+            <a href="${homeUrl}">
                 <fmt:message key="command.cancel"/>
             </a>
 

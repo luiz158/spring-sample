@@ -10,10 +10,10 @@
     <http pattern="/images/**" security="none"/>
     <http pattern="/styles/**" security="none"/>
     <http pattern="/resources/**" security="none"/>
+    <http pattern="/login" security="none"/>
 
     <http auto-config="true">
         <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" method="GET"/>
-        <intercept-url pattern="/rewards/newReward" access="ROLE_ADMIN"/>
         <intercept-url pattern="/accounts/*" access="ROLE_ADMIN" method="PUT"/>
         <intercept-url pattern="/**" access="ROLE_ADMIN"/>
         <form-login login-page="/login" authentication-failure-url="/login?login_error=1" default-target-url="/"/>
@@ -22,7 +22,7 @@
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="sample" password="sample" authorities="ROLE_USER"/>
+                <user name="sample" password="sample" authorities="ROLE_ADMIN"/>
                 <user name="admin" password="springsource" authorities="ROLE_ADMIN"/>
             </user-service>
         </authentication-provider>

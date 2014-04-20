@@ -20,6 +20,7 @@
 
                 <div class="control">
                     <form:input path="searchString"/>
+                    <div id="comment">*<fmt:message key="label.all.results"/></div>
                     <fmt:message key="NotEmpty.accountSearchCriteria.searchString" var="errorMessage"/>
                     <form:errors cssClass="error" path="searchString"/>
                 </div>

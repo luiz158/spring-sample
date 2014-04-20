@@ -5,9 +5,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import sample.ents.Account;
+import sample.util.AccountSearchCriteria;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import static sample.ents.Account.*;
  * Date: 4/20/14
  */
 @Repository("accountRepo")
+@Transactional
 public class HibernateAccountRepo implements AccountRepository {
 
     private SessionFactory sessionFactory;
@@ -41,6 +43,16 @@ public class HibernateAccountRepo implements AccountRepository {
     @SuppressWarnings("unchecked")
     public List<Account> findByName(String name) {
         return (List<Account>) getCurrentSession().getNamedQuery(FIND_BY_NAME).setParameter("name", "%" + name + "%").list();
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Account> findByName(AccountSearchCriteria searchCriteria) {
+        return (List<Account>) getCurrentSession().getNamedQuery(FIND_BY_NAME)
+                .setParameter("name", "%" + searchCriteria.getSearchString() + "%").setFirstResult(
+                        searchCriteria.getPage()
+                                * searchCriteria.getMaximumResults())
+                .setMaxResults(searchCriteria.getMaximumResults()).list();
     }
 
     @Override

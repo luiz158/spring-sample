@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
  * Date: 4/20/14
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/app-config.xml", "classpath:spring/test-db-config.xml"})
+@ContextConfiguration(locations = {"classpath:spring/app-dao-config.xml", "classpath:spring/test-db-config.xml"})
 @Transactional
 public class HibernateAccountManagerRepoTest {
 

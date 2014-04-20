@@ -99,20 +99,11 @@
                             <fmt:message key="navigate.accounts"/>
                         </a>
                     </c:if>
-                </li>
+                    </li>
                 <li>
-                    <c:if test="${navigationTab eq 'newReward'}">
-                        <strong>
-                            <a href="<c:url value="/rewards/newReward"/>">
-                                <fmt:message key="navigate.rewards"/>
-                            </a>
-                        </strong>
-                    </c:if>
-                    <c:if test="${navigationTab != 'newReward'}">
-                        <a href="<c:url value="/rewards/newReward"/>">
-                            <fmt:message key="navigate.rewards"/>
-                        </a>
-                    </c:if>
+                    <a href="<c:url value="/accounts/create"/>">
+                        <fmt:message key="create.accounts"/>
+                    </a>
                 </li>
                 <security:authorize ifNotGranted="ROLE_ANONYMOUS">
                     <li>

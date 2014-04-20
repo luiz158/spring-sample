@@ -29,18 +29,30 @@
             <td>
                 <fmt:message key="label.Account.name"/>
             </td>
+            <td>
+                <fmt:message key="label.Account.email"/>
+            </td>
+            <td>
+                <fmt:message key="label.Account.dateOfBirth"/>
+            </td>
         </tr>
         </thead>
         <c:forEach var="account" items="${accountList}">
             <tr>
                 <td>
                     <spring:url var="showUrl" value="accounts/{number}">
-                        <spring:param name="number" value="${account.number}"/>
+                        <spring:param name="number" value="${account.id}"/>
                     </spring:url>
-                    <a href="${showUrl}">${account.number}</a>
+                    <a href="${showUrl}">${account.id}</a>
                 </td>
                 <td>
                         ${account.name}
+                </td>
+                <td>
+                        ${account.email}
+                </td>
+                <td>
+                        ${account.dateOfBirth}
                 </td>
             </tr>
         </c:forEach>

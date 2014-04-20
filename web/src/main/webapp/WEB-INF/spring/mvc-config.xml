@@ -3,20 +3,26 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-        http://www.springframework.org/schema/util
-        http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
     <!-- Enables JSR-330 validation -->
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
 
     <!-- Defines basic MVC defaults (handler adapter, mapping, date formatting, etc) -->
-    <mvc:annotation-driven validator="validator"/>
+    <mvc:annotation-driven conversion-service="typeConversionService" validator="validator"/>
+
+    <!-- Define a custom ConversionService -->
+    <bean id="typeConversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="sample.util.SimpleDateFormatter"/>
+            </set>
+        </property>
+    </bean>
 
     <!--
      Configures a handler for serving static resources by forwarding to the Servlet container's default Servlet.
@@ -51,7 +57,6 @@
         <property name="requestContextAttribute" value="requestContext"/>
         <property name="viewClass" value="org.springframework.webflow.mvc.view.FlowAjaxTiles3View"/>
     </bean>
-
 
 
     <!-- Configures Tiles 2 -->

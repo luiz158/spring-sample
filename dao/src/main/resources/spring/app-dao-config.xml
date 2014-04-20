@@ -13,7 +13,7 @@
 
     <context:annotation-config/>
     <!-- Scans the impl package for module @Components to install and configure -->
-    <context:component-scan base-package="sample"/>
+    <context:component-scan base-package="sample" annotation-config="true"/>
     <tx:annotation-driven/>
 
     <!-- Configures the Hibernate Object Relational Mapper (ORM) for the Admin and RewarNetwork applications -->

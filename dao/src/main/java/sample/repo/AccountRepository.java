@@ -1,6 +1,7 @@
 package sample.repo;
 
 import sample.ents.Account;
+import sample.util.AccountSearchCriteria;
 
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,8 @@ public interface AccountRepository {
     Account findById(Integer id);
 
     List<Account> findByName(String name);
+
+    List<Account> findByName(AccountSearchCriteria searchCriteria);
 
     List<Account> findByDob(Date dob);
 

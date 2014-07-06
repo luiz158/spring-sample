@@ -20,32 +20,12 @@
         <level value="debug"/>
     </logger>
 
-    <logger name="rewardnetwork">
-        <level value="debug"/>
-    </logger>
-
     <logger name="sample">
         <level value="debug"/>
     </logger>
 
     <!-- 3rdparty Loggers -->
-    <logger name="org.org.springframework.beans">
-        <level value="info"/>
-    </logger>
-
-    <logger name="org.org.springframework.binding">
-        <level value="debug"/>
-    </logger>
-
-    <logger name="org.org.springframework.web">
-        <level value="debug"/>
-    </logger>
-
-    <logger name="org.org.springframework.webflow">
-        <level value="debug"/>
-    </logger>
-
-    <logger name="org.org.springframework.security">
+    <logger name=".org.springframework">
         <level value="info"/>
     </logger>
 

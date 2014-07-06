@@ -5,9 +5,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>sample</groupId>
+    <groupId>eu.sandbox</groupId>
     <artifactId>sample</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-final</version>
     <modules>
         <module>dao</module>
         <module>web</module>
@@ -31,9 +31,6 @@
     </properties>
 
     <build>
-        <!-- sources are compiled using java 8, this plugin insures this.
-        Install jdk 8 and add environment variable JAVA_HOME_8
-        which points to the installation directory-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -44,7 +41,6 @@
                     <target>1.8</target>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
-                    <executable>${env.JAVA_HOME_8}/bin/javac</executable>
                     <fork>true</fork>
                 </configuration>
             </plugin>

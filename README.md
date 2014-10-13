@@ -11,4 +11,4 @@ What you need to run it:
 Just create the war by running
 mvn clean install 
 Then start tomcat and drop the war in the webapps directory.
-The application can be accessed at http://localhost:808/sample
+The application can be accessed at http://localhost:8080/sample

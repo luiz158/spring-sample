@@ -6,8 +6,9 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util-4.0.xsd">
-
-    <util:properties id="dbProp" location="classpath:test-db.properties"/>
+    
+    <!-- For running application without postgresql-->
+    <util:properties id="dbProp" location="classpath:simple-db.properties"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="#{dbProp.driverClassName}"/>
@@ -23,8 +24,6 @@
         <prop key="hibernate.use_sql_comments">true</prop>
         <!-- Create/update the database tables automatically when the JVM starts up -->
         <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
-        <!-- Turn batching off for better error messages under PostgreSQL
-        <prop key="hibernate.jdbc.batch_size">0</prop> -->
 
         <!-- query cache -->
         <prop key="hibernate.cache.use_query_cache">true</prop>

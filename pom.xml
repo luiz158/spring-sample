@@ -341,7 +341,8 @@
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>1.4.177</version>
-                <scope>test</scope>
+                <!-- <scope>test</scope> -->
+                <!-- For running application without postgresql-->
             </dependency>
 
 
